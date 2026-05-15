@@ -1,6 +1,6 @@
 expression BaseDeDados =
 		let
-		    Fonte = Csv.Document(File.Contents("C:\DRIVE\OneDrive - ImperIAnalytics\1. Administrativo\01. Portfólio ImperIAnalytics\base_varejo_ficticia.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    Fonte = Csv.Document(File.Contents("C:\databases\relatorios\vendas-3-anos\base_varejo_ficticia.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
 		    #"Colunas Removidas" = Table.RemoveColumns(#"Cabeçalhos Promovidos",{"Cliente_Nome", "Vendedor_ID"}),
 		    #"Tipo Alterado com Localidade" = Table.TransformColumnTypes(#"Colunas Removidas", {{"Preco_Unitario", Currency.Type}, {"Desconto_pct", Currency.Type}, {"Receita", Currency.Type}}, "en-US"),
