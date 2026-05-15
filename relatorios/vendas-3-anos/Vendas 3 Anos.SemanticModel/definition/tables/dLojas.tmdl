@@ -1,0 +1,35 @@
+table dLojas
+	lineageTag: b7c61af6-f2fe-4e4e-98ee-03cf10a10fd8
+
+	column Loja_ID
+		dataType: string
+		isKey
+		lineageTag: bec57ea2-3472-4917-abe4-5056bc456bd6
+		summarizeBy: none
+		sourceColumn: Loja_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Loja_Nome
+		dataType: string
+		lineageTag: 70a467ad-a639-4cf8-89b2-94a39a3c81a4
+		summarizeBy: none
+		sourceColumn: Loja_Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dLojas = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = BaseDeDados,
+				    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"Loja_ID", "Loja_Nome"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas")
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

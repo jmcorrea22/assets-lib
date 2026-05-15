@@ -1,0 +1,43 @@
+table dProdutos
+	lineageTag: 32fd4397-b9fa-4723-b2b8-98adec79ecd5
+
+	column Produto_ID
+		dataType: string
+		isKey
+		lineageTag: ad11da95-4d7c-41bc-baa4-fce9e9f92876
+		summarizeBy: none
+		sourceColumn: Produto_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Produto_Nome
+		dataType: string
+		lineageTag: e198babf-8dd0-44bc-880a-988eef9701a1
+		summarizeBy: none
+		sourceColumn: Produto_Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		lineageTag: 734e7498-03a3-4792-ba3f-e62919911b31
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dProdutos = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = BaseDeDados,
+				    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"Produto_ID", "Produto_Nome", "Categoria"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas", {"Produto_ID"})
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

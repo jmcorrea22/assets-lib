@@ -1,0 +1,305 @@
+table dCalendario
+	lineageTag: e0eec91b-889e-4cd1-9c7a-873f4c6fa539
+	dataCategory: Time
+
+	column Data
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: 9d2b7487-d9e7-476d-a471-8c008bc8fe08
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Dia
+		dataType: int64
+		formatString: 0
+		lineageTag: 0093bf7c-ab90-4844-989a-2ca150591b1f
+		summarizeBy: none
+		sourceColumn: Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana
+		dataType: string
+		lineageTag: c0666087-7ce3-4952-8f36-eea9d2bbb32c
+		summarizeBy: none
+		sourceColumn: Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: string
+		lineageTag: 8d606a5d-95d5-4c84-980b-19d5dc2d104a
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: ff6c0af8-f2b9-4a96-ab7c-595893ed9731
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana Abrev'
+		dataType: string
+		lineageTag: 4e606be4-c828-48de-b481-2b16dd5887d6
+		summarizeBy: none
+		sourceColumn: Semana Abrev
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana do Ano'
+		dataType: int64
+		formatString: 0
+		lineageTag: 76c503e1-650d-4da3-ab94-c5e0b2d1e643
+		summarizeBy: none
+		sourceColumn: Semana do Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana do Mês'
+		dataType: string
+		lineageTag: 79e72cf3-4109-48dd-a4bf-502305186da3
+		summarizeBy: none
+		sourceColumn: Semana do Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Semana Ini'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: af9be4f3-daa8-461a-9585-53caa52de35e
+		summarizeBy: none
+		sourceColumn: Semana Ini
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Semana Fim'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a091804b-1c92-4a28-b765-b78ab6d8d7d1
+		summarizeBy: none
+		sourceColumn: Semana Fim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Mês Nro'
+		dataType: int64
+		formatString: 0
+		lineageTag: dc9c190f-42d3-454f-8398-b0b8b7032907
+		summarizeBy: none
+		sourceColumn: Mês Nro
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Nome'
+		dataType: string
+		lineageTag: 091cf112-3cdb-4a47-bc39-9af6c29c2d3b
+		summarizeBy: none
+		sourceColumn: Mês Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Atual'
+		dataType: string
+		lineageTag: add84cec-35cd-4344-8851-f6d28c323ff6
+		summarizeBy: none
+		sourceColumn: Mês Atual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Ini'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7cf9967a-12d8-4819-9973-d671ae0c821a
+		summarizeBy: none
+		sourceColumn: Mês Ini
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Mês Fim'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ac0d3198-f0f6-4b94-b53b-d8f9b293436f
+		summarizeBy: none
+		sourceColumn: Mês Fim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Dias no Mês'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9756b0c0-9bb6-4dbd-9410-a2962ce7fd9c
+		summarizeBy: none
+		sourceColumn: Dias no Mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Trimestre Ini'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c687cf0f-d350-4cff-94b3-8e01df8c2231
+		summarizeBy: none
+		sourceColumn: Trimestre Ini
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Trimestre Fim'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1f4046e6-c7f2-43b5-bfc4-49437970a9b8
+		summarizeBy: none
+		sourceColumn: Trimestre Fim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ano Atual'
+		dataType: string
+		lineageTag: 37e1efca-8aa9-4607-8a9b-624f84546851
+		summarizeBy: none
+		sourceColumn: Ano Atual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ano Ini'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3b38e3c3-f14c-4bd1-8d86-fa1b7abbd535
+		summarizeBy: none
+		sourceColumn: Ano Ini
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ano Fim'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 09db5a0e-4f76-4a2a-a825-508ded207689
+		summarizeBy: none
+		sourceColumn: Ano Fim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Mês/Ano
+		dataType: string
+		lineageTag: 1a7194be-5243-47d4-9ae3-41c3fa96c7e2
+		summarizeBy: none
+		sourceColumn: Mês/Ano
+		sortByColumn: 'Mês/Ano Ordem'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês/Ano Ordem'
+		dataType: int64
+		formatString: 0
+		lineageTag: 744dc21c-604c-43b6-b4d9-3a5b64b2f208
+		summarizeBy: none
+		sourceColumn: Mês/Ano Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dCalendario = m
+		mode: import
+		queryGroup: Dimensões
+		source = ```
+				let
+				    // Data Inicial
+				    DataMin = #date(2023, 3, 16),
+				    // Data final da calendário:
+				    Datamax = #date(2026, 3, 31),
+				
+				  // Quantidade de dias entre DataMin e Datamax
+				  Qtde_Dias = Duration.TotalDays(Datamax - DataMin) + 1, 
+				  
+				  // Lista de Datas
+				  Fonte = List.Dates(DataMin, Qtde_Dias, #duration(1, 0, 0, 0)), 
+				  
+				  //Tabela Calendário
+				  Tabela = #table(
+				    type table [
+				      Data = date, 
+				      Dia = Int8.Type, 
+				      Semana = text, 
+				      Semana Abrev = text, 
+				      Semana do Ano = Int16.Type,
+				      Semana do Mês = text,
+				      Semana Ini = date, 
+				      Semana Fim = date, 
+				      Mês Nro = Int64.Type, 
+				      Mês Nome = text,
+				      Mês Atual = text,
+				      Mês Ini = date, 
+				      Mês Fim = date, 
+				      Dias no Mês = Int64.Type, 
+				      Trimestre = text, 
+				      Trimestre Ini = date, 
+				      Trimestre Fim = date, 
+				      Ano = Int16.Type,
+				      Ano Atual = text,
+				      Ano Ini = date, 
+				      Ano Fim = date, 
+				      #"Mês/Ano" = text, 
+				      #"Mês/Ano Ordem" = Int32.Type
+				    ], 
+				    List.Transform(
+				      Fonte, 
+				      each {
+				        _,  																																		                    // Data: 01/12/2022, 02/12/2022, ...
+				        Date.Day(_),  																																                    // Dia: 1, 2, 3, ...
+				        Text.Repeat(Character.FromNumber(8203), 7 - Date.DayOfWeek(_)) & Text.BeforeDelimiter(Text.Proper(Date.ToText(_, "dddd", "pt-BR")), "-"),                       // Semana: Segunda, Terça, Quarta, ...
+				        Text.Repeat(Character.FromNumber(8203), 7 - Date.DayOfWeek(_)) & Text.Proper(Date.ToText(_, "ddd", "pt-BR")),  								                    // Semana Abrev: Seg, Ter, Qua, ...
+				        Date.WeekOfYear(_),                         								                                                                                    // Semana do Ano: 1, 2, 3, ...
+				        Text.From(Date.WeekOfMonth(_)) & "ª Semana",  								                                                                                    // Semana do Mês: 1, 2, 3, ...
+				        Date.StartOfWeek(_),                                                                                                                                            // Semana Ini: 02/01/2022, 09/01/2022, 16/01/2022, ... 
+				        Date.EndOfWeek(_),                                                                                                                                              // Semana Fim: 08/01/2022, 05/01/2022, 22/01/2022, ... 
+				        Date.Month(_),  								                                                                                                                // Mês Nro: 1, 2, 3, ...
+				        Text.Repeat(Character.FromNumber(8203), 12 - Date.Month(_)) & Text.Proper(Date.ToText(_, "MMM", "pt-BR")),                                                      // Mês Nome: Jan, Fev, Mar, ...
+				        if Date.IsInCurrentMonth(_) then "Mês Atual" else Text.Proper(Date.ToText(_, "MMMM/yy")),    // Mês Atual: Jan, Fev, Mês Atual, ...
+				        Date.StartOfMonth(_),                                                                                                                                           // Mês Ini: 01/01/2022, 01/02/2022, 01/03/2022, ... 
+				        Date.EndOfMonth(_),                                                                                                                                             // Mês Fim: 31/01/2022, 28/02/2022, 31/03/2022, ... 
+				        Date.DaysInMonth(_),                                                                                                                                            // Dias no Mês: 31, 28, 30, ...
+				        "T" & Text.From(Date.QuarterOfYear(_)),  																									                    // Trimestre: T1, T2, T3 e T4, ...
+				        Date.StartOfQuarter(_),                                                                                                                                         // Trimestre Ini: 01/01/2022, 01/04/2022, 01/07/2022, ... 
+				        Date.EndOfQuarter(_),                                                                                                                                           // Trimestre Fim: 31/03/2022, 30/06/2022, 30/09/2022, ... 
+				        Date.Year(_),                                                             																						// Ano: 2021, 2022, 2023, 2024...
+				        if Date.IsInCurrentYear(_) then "Ano Atual" else Text.From(Date.Year(_)),  																						// Ano Atual: 2021, 2022, 2023, Ano Atual...
+				        Date.StartOfYear(_),                                                                                                                                            // Ano Ini: 01/01/2022, 01/01/2023, 01/01/2024, ... 
+				        Date.EndOfYear(_),                                                                                                                                              // Ano Fim: 31/12/2022, 31/12/2023, 31/12/2024, ... 
+				        Text.Proper(Date.ToText(_, "MMM/yy")), 																									                        // Mês/Ano: Jan/22, Fev/22, ...
+				        12 * Date.Year(_) + Date.Month(_) - 1  																									                        // Mês/Ano Ordem: 24287, 24286, ...
+				      }
+				    )
+				  )
+				in
+				    Tabela
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

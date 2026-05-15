@@ -1,0 +1,16 @@
+expression BaseDeDados =
+		let
+		    Fonte = Csv.Document(File.Contents("C:\DRIVE\OneDrive - ImperIAnalytics\1. Administrativo\01. Portfólio ImperIAnalytics\base_varejo_ficticia.csv"),[Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+		    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+		    #"Colunas Removidas" = Table.RemoveColumns(#"Cabeçalhos Promovidos",{"Cliente_Nome", "Vendedor_ID"}),
+		    #"Tipo Alterado com Localidade" = Table.TransformColumnTypes(#"Colunas Removidas", {{"Preco_Unitario", Currency.Type}, {"Desconto_pct", Currency.Type}, {"Receita", Currency.Type}}, "en-US"),
+		    #"Tipo Alterado" = Table.TransformColumnTypes(#"Tipo Alterado com Localidade",{{"Data", type date}, {"ID_Cliente", Int64.Type}, {"Nome Cliente", type text}, {"Genero", type text}, {"Cidade", type text}, {"Loja_ID", type text}, {"Loja_Nome", type text}, {"Produto_ID", type text}, {"Produto_Nome", type text}, {"Categoria", type text}, {"Quantidade", Int64.Type}, {"Canal", type text}, {"ID_Vendedor", type text}, {"Nome Vendedor", type text}, {"Desconto_pct", Percentage.Type}})
+		in
+		    #"Tipo Alterado"
+	lineageTag: 1ba35de7-6875-4558-9404-622244b9a6ea
+	queryGroup: Base
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,44 @@
+table dClientes
+	lineageTag: 1e1fab4f-0f78-41f4-88cd-3989a27203a6
+
+	column ID_Cliente
+		dataType: int64
+		isKey
+		formatString: 0
+		lineageTag: 24155d43-d68c-49ba-babf-9bb6f7689fc0
+		summarizeBy: none
+		sourceColumn: ID_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome Cliente'
+		dataType: string
+		lineageTag: ea9711aa-b1f5-496c-a17c-8b6dd7e886f1
+		summarizeBy: none
+		sourceColumn: Nome Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Genero
+		dataType: string
+		lineageTag: c1fba452-bf41-4b5f-bb51-90dac6ab2c45
+		summarizeBy: none
+		sourceColumn: Genero
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dClientes = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = BaseDeDados,
+				    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"ID_Cliente", "Nome Cliente", "Genero"}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Outras Colunas Removidas", {"ID_Cliente"})
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

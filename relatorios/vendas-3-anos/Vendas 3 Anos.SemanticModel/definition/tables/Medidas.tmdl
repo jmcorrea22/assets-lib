@@ -1,0 +1,43 @@
+table Medidas
+	lineageTag: f78639e7-f015-429e-b499-759c7902bb14
+
+	measure 'Receita Líquida' = SUM( fVendas[Receita] )
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		lineageTag: 1950b125-2df1-46e0-8989-b4bb128ce4ee
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure Produtos = DISTINCTCOUNT( fVendas[Produto_ID] )
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 56c98fb6-7b2e-422f-9b40-6c1e67024648
+
+	measure Dump = BLANK()
+		formatString: 0
+		lineageTag: ef6a9aba-2a57-40cc-8b1f-570fb4c42c49
+
+	measure 'Últimos 6 meses' =
+			
+			CALCULATE(
+			    [Receita Líquida],
+			    KEEPFILTERS(
+			        dCalendario[Data] >=
+			        EDATE( TODAY(), -SELECTEDVALUE(pNumeroDeMeses[pNumeroDeMeses]) )
+			    )
+			)
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		lineageTag: 14335683-1c50-4d28-bbab-ccd6a5325515
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

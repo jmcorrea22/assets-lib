@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "dCalendario",
+          "nodeLineageTag": "e0eec91b-889e-4cd1-9c7a-873f4c6fa539",
+          "size": {
+            "height": 147.52096647687807,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 382.25937956811794,
+            "y": 0
+          },
+          "nodeIndex": "dClientes",
+          "nodeLineageTag": "1e1fab4f-0f78-41f4-88cd-3989a27203a6",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 786.36375729040776,
+            "y": 0
+          },
+          "nodeIndex": "dLojas",
+          "nodeLineageTag": "b7c61af6-f2fe-4e4e-98ee-03cf10a10fd8",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 586.3273704215477
+          },
+          "nodeIndex": "dProdutos",
+          "nodeLineageTag": "32fd4397-b9fa-4723-b2b8-98adec79ecd5",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 784.36593351209444,
+            "y": 602.84939636323111
+          },
+          "nodeIndex": "dVendedores",
+          "nodeLineageTag": "ec42ba58-646b-48a3-98cb-afd2c9f2aac7",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 374.57413410066721,
+            "y": 268.35185850568564
+          },
+          "nodeIndex": "fVendas",
+          "nodeLineageTag": "d847a3bf-fda1-49e3-9144-696c0e25d222",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 89.192590520569482,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

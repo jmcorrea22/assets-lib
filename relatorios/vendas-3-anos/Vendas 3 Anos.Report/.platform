@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Vendas 3 Anos"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5f8c7e79-8624-4fac-b0b1-40970df7c0f5"
+  }
+}

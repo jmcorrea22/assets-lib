@@ -1,0 +1,117 @@
+table fVendas
+	lineageTag: d847a3bf-fda1-49e3-9144-696c0e25d222
+
+	column Data
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 2175ead7-c722-4647-bbcb-bbbc7a389584
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ID_Cliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e7dba97-2c1b-4f95-8429-d42ef7b94d74
+		summarizeBy: none
+		sourceColumn: ID_Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cidade
+		dataType: string
+		lineageTag: bbb97ff6-727b-475e-9950-68d30a54e110
+		summarizeBy: none
+		sourceColumn: Cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Loja_ID
+		dataType: string
+		lineageTag: aa4bd4ca-7c57-49d4-b7f2-26d8f93d8497
+		summarizeBy: none
+		sourceColumn: Loja_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Produto_ID
+		dataType: string
+		lineageTag: 4da88627-dc2d-4424-ab16-44c7e30d1f9e
+		summarizeBy: none
+		sourceColumn: Produto_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantidade
+		dataType: int64
+		formatString: 0
+		lineageTag: 55e7d93d-7ebd-416c-a49e-7a70715773de
+		summarizeBy: sum
+		sourceColumn: Quantidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Preco_Unitario
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: cebe64e7-8836-4072-99eb-d1dc582aa997
+		summarizeBy: sum
+		sourceColumn: Preco_Unitario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column Desconto_pct
+		dataType: double
+		formatString: #,0%;-#,0%;#,0%
+		lineageTag: 945247b4-adf3-4aee-bf83-f94862bd9e1c
+		summarizeBy: sum
+		sourceColumn: Desconto_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column Receita
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		lineageTag: c4be11fb-6856-4d42-a321-efcd2f6ea176
+		summarizeBy: sum
+		sourceColumn: Receita
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column Canal
+		dataType: string
+		lineageTag: dec8c73e-6ad2-4857-bcdb-13d790178d50
+		summarizeBy: none
+		sourceColumn: Canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Vendedor
+		dataType: string
+		lineageTag: 89533826-f572-45ed-a65e-e8690bc710cf
+		summarizeBy: none
+		sourceColumn: ID_Vendedor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fVendas = m
+		mode: import
+		queryGroup: Fatos
+		source =
+				let
+				    Fonte = BaseDeDados,
+				    #"Outras Colunas Removidas" = Table.SelectColumns(Fonte,{"Data", "ID_Cliente", "Cidade", "Loja_ID", "Produto_ID", "Quantidade", "Preco_Unitario", "Desconto_pct", "Receita", "Canal", "ID_Vendedor"})
+				in
+				    #"Outras Colunas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

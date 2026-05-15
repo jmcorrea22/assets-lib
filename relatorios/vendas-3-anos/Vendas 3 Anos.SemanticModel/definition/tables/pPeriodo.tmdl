@@ -1,0 +1,49 @@
+table pPeriodo
+	lineageTag: b0a43beb-2e71-4b63-8b0b-ac1cb6184bb4
+
+	column pPeriodo
+		lineageTag: 9a52d02f-6acb-4a21-b25c-d429e4e81399
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'pPeriodo Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'pPeriodo Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pPeriodo Campos'
+		isHidden
+		lineageTag: ae0c46f0-d751-4f23-b36c-ebdd99549da7
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'pPeriodo Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'pPeriodo Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 13dd04c0-2f6b-4bf7-9c97-218031f98c35
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pPeriodo = calculated
+		mode: import
+		source =
+				{
+				    ("Total", NAMEOF([Dump]), 0),
+				    ("Ano", NAMEOF('dCalendario'[Ano]), 1),
+				    ("Mês/Ano", NAMEOF('dCalendario'[Mês/Ano]), 2)
+				}
+
+	annotation PBI_Id = c917f3f0583446ffb115af56082b683e
+

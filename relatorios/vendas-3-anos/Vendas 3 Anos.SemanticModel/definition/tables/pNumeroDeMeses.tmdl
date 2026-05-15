@@ -1,0 +1,26 @@
+table pNumeroDeMeses
+	lineageTag: ecd9880f-97fa-4690-a9d9-54c96b49d40f
+
+	measure 'Valor pNumeroDeMeses' = SELECTEDVALUE('pNumeroDeMeses'[pNumeroDeMeses], 3)
+		formatString: 0
+		lineageTag: 4c9d6aed-c747-43e3-a88b-b8e039a5742d
+
+	column pNumeroDeMeses
+		formatString: 0
+		lineageTag: 7900d9d5-62fa-4f60-a79a-91f27d675871
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition pNumeroDeMeses = calculated
+		mode: import
+		source = GENERATESERIES(1, 24, 1)
+
+	annotation PBI_Id = a1ad586db87b4097bbc35ea462fd873a
+
