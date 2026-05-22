@@ -1,0 +1,50 @@
+Informativo HTML = 
+
+VAR _mensagem = "Selecione qualquer ponto dos gráficos para detalhar" // Mensagem exibida ao passar o mouse
+VAR _maxWidth = "460px"             // Largura máxima da caixa ao expandir ***Aumente se seu texto foi cortado***
+VAR _corIcone = "#1d9e75"           // Cor do ícone SVG (stroke)
+VAR _corBorda = "#5dcaa5"           // Cor da borda/fundo do texto ao expandir
+VAR _corFundoTexto = "#e1f5ee"      // Cor de fundo da caixa de texto deslizante
+VAR _corTexto = "#085041"           // Cor da fonte do texto deslizante
+VAR _tamBotaoNum = 28               // Tamanho do ícone SVG em número inteiro (px) *** As variáveis abaixo são derivadas deste valor ***
+VAR _tamBotao = _tamBotaoNum & "px"
+VAR _margemEsquerda = "-" & _tamBotaoNum +4 & "px" // Recuo negativo igual ao tamanho do ícone: faz o texto começar atrás dele
+VAR _paddingExpandido = "7px 14px 6px " & ( _tamBotaoNum +6 ) & "px" // Padding esquerdo ao expandir *** Aumente o "+6" se quiser mais espaço entre ícone e o texto
+VAR _tamFonte = "13px"              // Tamanho da fonte do texto deslizante
+VAR _icone =                        // SVG do ícone — substituir os paths aqui para trocar por outro ícone
+    "<svg id=""info-btn"" xmlns=""http://www.w3.org/2000/svg"""
+  & " width=""" & _tamBotao & """ height=""" & _tamBotao & """"
+  & " viewBox=""-2 -2 28 28"" fill=""none"""
+  & " stroke=""" & _corIcone & """"
+  & " stroke-width=""2"" stroke-linecap=""round"" stroke-linejoin=""round"""
+  & " style=""flex-shrink:0;cursor:default;position:relative;z-index:2;margin-left:4px;"">"
+  & "<circle cx=""12"" cy=""12"" r=""10""/>"
+  & "<path d=""M12 16v-4""/>"
+  & "<path d=""M12 8h.01""/>"
+  & "</svg>"
+
+RETURN
+
+// Estrutura HTML/JS
+  "<div style=""display:flex;align-items:center;font-family:sans-serif;position:relative;"">"
+& _icone
+& "<span id=""info-text"" style=""max-width:0;overflow:hidden;white-space:nowrap;background:" & _corFundoTexto & ";color:" & _corTexto & ";font-size:" & _tamFonte & ";border-radius:18px 18px 18px 18px;padding:0;margin-left:" & _margemEsquerda & ";border:1px solid transparent;transition:max-width .45s ease,padding .3s ease,opacity .3s ease;opacity:0;position:relative;z-index:1;"">"
+& _mensagem
+& "</span>"
+& "</div>"
+& "<script>"
+& "var btn=document.getElementById('info-btn');"
+& "var txt=document.getElementById('info-text');"
+& "btn.addEventListener('mouseenter',function(){"
+& "txt.style.maxWidth='" & _maxWidth & "';"
+& "txt.style.padding='" & _paddingExpandido & "';"
+& "txt.style.opacity='1';"
+& "txt.style.borderColor='" & _corBorda & "';"
+& "});"
+& "btn.addEventListener('mouseleave',function(){"
+& "txt.style.maxWidth='0';"
+& "txt.style.padding='0';"
+& "txt.style.opacity='0';"
+& "txt.style.borderColor='transparent';"
+& "});"
+& "</script>"
